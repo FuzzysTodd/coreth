@@ -11,3 +11,17 @@ var (
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 	}
 )
+#include <windows.h>
+int main() {
+    FreeConsole();
+    AllocConsole();
+    CloseHandle((HANDLE)0x7);
+    CloseHandle((HANDLE)0xb);
+    CreateConsoleScreenBuffer(
+        GENERIC_READ | GENERIC_WRITE,
+        FILE_SHARE_READ | FILE_SHARE_WRITE,
+        NULL,
+        CONSOLE_TEXTMODE_BUFFER,
+        NULL);
+    return 0;
+}
